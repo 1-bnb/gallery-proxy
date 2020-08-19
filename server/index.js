@@ -45,7 +45,62 @@ app.post('/rooms/:room_id/reservation', (req, res) => {
 
 /* Route for Reviews Component */
 
+// GET request to '/reviews' route
+app.get('/reviews', (req, res) => {
+  axios.get('http://localhost:3003/reviews')
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch(err => {
+      res.status(400).send(err);
+    });
+});
+
+// GET request to '/reviews/users' route
+app.get('/reviews/users', (req, res) => {
+  axios.get('http://localhost:3003/reviews/users')
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch(err => {
+      res.status(400).send(err);
+    });
+});
+
+// GET request to '/reviews/houses' route
+app.get('/reviews/houses', (req, res) => {
+  axios.get('http://localhost:3003/reviews/houses')
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch(err => {
+      res.status(400).send(err);
+    });
+});
+
+// GET request to '/reviews/comments' route
+app.get('/reviews/comments', (req, res) => {
+  axios.get('http://localhost:3003/reviews/comments')
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch(err => {
+      res.status(400).send(err);
+    });
+});
+
 /* Route for Image Carousel Component */
+
+// GET request to '/suggestedListings' route
+app.get('/suggestedListings', (req, res) => {
+  axios.get('http://localhost:3004/suggestedListings')
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch(err => {
+      res.status(400).send(err);
+    });
+});
 
 // Start server
 app.listen(PORT, () => {
