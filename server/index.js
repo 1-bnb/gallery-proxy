@@ -8,9 +8,21 @@ const PORT = 3000;
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static('public'));
+app.use('/rooms/:room_id', express.static('public'));
 
 /* Route for Photo Gallery Component */
+
+// GET request to '/properties/:id' route
+app.get('/properties/:id', (req, res) => {
+  let room_id = req.params.id;
+  axios.get(`http://localhost:3001/properties/${room_id}`)
+    .then(response => {
+      res.status(200).send(response.data);
+    })
+    .catch(err => {
+      res.status(400).send(err);
+    });
+});
 
 /* Route for Calendar Component */
 
@@ -89,7 +101,7 @@ app.get('/reviews/comments', (req, res) => {
     });
 });
 
-/* Route for Image Carousel Component */
+// /* Route for Image Carousel Component */
 
 // GET request to '/suggestedListings' route
 app.get('/suggestedListings', (req, res) => {
