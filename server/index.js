@@ -15,7 +15,7 @@ app.use('/rooms/:room_id', express.static('public'));
 // GET request to '/properties/:id' route
 app.get('/properties/:id', (req, res) => {
   let room_id = req.params.id;
-  axios.get(`http://localhost:3001/properties/${room_id}`)
+  axios.get(`http://18.191.221.206:3001/properties/${room_id}`)
     .then(response => {
       res.status(200).send(response.data);
     })
@@ -29,7 +29,7 @@ app.get('/properties/:id', (req, res) => {
 // GET request to '/rooms/:room_id/reservation' route
 app.get('/rooms/:room_id/reservation', (req, res) => {
   let room_id = req.params.room_id;
-  axios.get(`http://localhost:3002/rooms/${room_id}/reservation`)
+  axios.get(`http://3.134.88.239:3002/rooms/${room_id}/reservation`)
     .then(response => {
       res.status(200).send(response.data);
     })
@@ -46,7 +46,7 @@ app.post('/rooms/:room_id/reservation', (req, res) => {
     check_in: req.body.check_in,
     check_out: req.body.check_out
   }
-  axios.post(`http://localhost:3002/rooms/${room_id}/reservation`, reservation)
+  axios.post(`http://3.134.88.239:3002/rooms/${room_id}/reservation`, reservation)
     .then(response => {
       res.status(200).send(response.data);
     })
@@ -59,7 +59,7 @@ app.post('/rooms/:room_id/reservation', (req, res) => {
 
 // GET request to '/reviews' route
 app.get('/reviews', (req, res) => {
-  axios.get('http://localhost:3003/reviews')
+  axios.get('http://13.52.214.87:3003/reviews')
     .then((response) => {
       res.send(response.data);
     })
@@ -70,7 +70,7 @@ app.get('/reviews', (req, res) => {
 
 // GET request to '/reviews/users' route
 app.get('/reviews/users', (req, res) => {
-  axios.get('http://localhost:3003/reviews/users')
+  axios.get('http://13.52.214.87:3003/reviews/users')
     .then((response) => {
       res.send(response.data);
     })
@@ -81,7 +81,7 @@ app.get('/reviews/users', (req, res) => {
 
 // GET request to '/reviews/houses' route
 app.get('/reviews/houses', (req, res) => {
-  axios.get('http://localhost:3003/reviews/houses')
+  axios.get('http://13.52.214.87:3003/reviews/houses')
     .then((response) => {
       res.send(response.data);
     })
@@ -92,7 +92,7 @@ app.get('/reviews/houses', (req, res) => {
 
 // GET request to '/reviews/comments' route
 app.get('/reviews/comments', (req, res) => {
-  axios.get('http://localhost:3003/reviews/comments')
+  axios.get('http://13.52.214.87:3003/reviews/comments')
     .then((response) => {
       res.send(response.data);
     })
@@ -105,7 +105,7 @@ app.get('/reviews/comments', (req, res) => {
 
 // GET request to '/suggestedListings' route
 app.get('/suggestedListings', (req, res) => {
-  axios.get('http://localhost:3004/suggestedListings')
+  axios.get('http://52.32.67.233:3004/suggestedListings')
     .then((response) => {
       res.send(response.data);
     })
